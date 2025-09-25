@@ -23,7 +23,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KvizHub.Core\KvizHub.Core.csproj" />
+    <ProjectReference Include="..\KvizHub.Infrastructure\KvizHub.Infrastructure.csproj" />
     <ProjectReference Include="..\KvizHub.Models\KvizHub.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

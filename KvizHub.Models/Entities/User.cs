@@ -11,23 +11,21 @@ namespace KvizHub.Models.Entities
 	{
 		public int Id { get; set; }
 
-		[Required]
-		[MaxLength(50)]
+		[Required, MaxLength(50)]
 		public string Username { get; set; } = string.Empty;
 
-		[Required]
-		[EmailAddress]
+		[Required, EmailAddress]
 		public string Email { get; set; } = string.Empty;
 
 		[Required]
 		public string PasswordHash { get; set; } = string.Empty;
 
 		public string? ProfileImage { get; set; }
-
 		public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-		// Navigation properties
+		// Navigacija
 		public ICollection<QuizResult> QuizResults { get; set; } = new List<QuizResult>();
 		public ICollection<Quiz> CreatedQuizzes { get; set; } = new List<Quiz>();
 	}
+
 }

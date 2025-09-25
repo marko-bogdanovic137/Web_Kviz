@@ -10,12 +10,12 @@ namespace KvizHub.Models.Entities
 	{
 		public int Id { get; set; }
 
-		// Foreign keys
+		// FK
 		public int UserAnswerId { get; set; }
 		public int AnswerOptionId { get; set; }
 
-		// Navigation properties
 		public UserAnswer UserAnswer { get; set; } = null!;
 		public AnswerOption AnswerOption { get; set; } = null!;
 	}
+
 }

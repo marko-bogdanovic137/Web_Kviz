@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using KvizHub.Models.Entities;
+using KvizHub.Core.Services.Interfaces;
 
-namespace KvizHub.Infrastructure.Data
+namespace KvizHub.Infrastructure
 {
-	public class ApplicationDbContext : DbContext
+	public class ApplicationDbContext : DbContext, IApplicationDbContext
 	{
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
 		{
 		}
 
-		// DbSet-ovi za sve entitete
+		// DbSet-ovi
 		public DbSet<User> Users { get; set; }
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<Quiz> Quizzes { get; set; }
@@ -28,83 +29,75 @@ namespace KvizHub.Infrastructure.Data
 		{
 			base.OnModelCreating(modelBuilder);
 
-			// Konfiguracija odnosa i constraints
-			ConfigureUser(modelBuilder);
-			ConfigureQuiz(modelBuilder);
-			ConfigureQuestion(modelBuilder);
-			ConfigureQuizResult(modelBuilder);
-		}
+			// Indeksi
+			modelBuilder.Entity<User>()
+				.HasIndex(u => u.Username)
+				.IsUnique();
+			modelBuilder.Entity<User>()
+				.HasIndex(u => u.Email)
+				.IsUnique();
 
-		private void ConfigureUser(ModelBuilder modelBuilder)
-		{
-			modelBuilder.Entity<User>(entity =>
+			modelBuilder.Entity<Category>()
+				.HasIndex(c => c.Name)
+				.IsUnique();
+
+			modelBuilder.Entity<Quiz>()
+				.HasIndex(q => q.Title);
+
+			// Globalno: NO CASCADE DELETE za sve FK-ove
+			foreach (var fk in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
 			{
-				entity.HasIndex(u => u.Username).IsUnique();
-				entity.HasIndex(u => u.Email).IsUnique();
+				fk.DeleteBehavior = DeleteBehavior.Restrict;
+			}
 
-				entity.HasMany(u => u.QuizResults)
-					  .WithOne(qr => qr.User)
-					  .HasForeignKey(qr => qr.UserId)
-					  .OnDelete(DeleteBehavior.Cascade);
+			// Lokalni izuzeci gde želimo kaskadno brisanje
+			modelBuilder.Entity<AnswerOption>()
+				.HasOne(ao => ao.Question)
+				.WithMany(q => q.AnswerOptions)
+				.HasForeignKey(ao => ao.QuestionId)
+				.OnDelete(DeleteBehavior.Cascade);
 
-				entity.HasMany(u => u.CreatedQuizzes)
-					  .WithOne(q => q.CreatedByUser)
-					  .HasForeignKey(q => q.CreatedByUserId)
-					  .OnDelete(DeleteBehavior.Restrict);
-			});
-		}
+			modelBuilder.Entity<SelectedAnswer>()
+				.HasOne(sa => sa.UserAnswer)
+				.WithMany(ua => ua.SelectedAnswers)
+				.HasForeignKey(sa => sa.UserAnswerId)
+				.OnDelete(DeleteBehavior.Cascade);
 
-		private void ConfigureQuiz(ModelBuilder modelBuilder)
-		{
-			modelBuilder.Entity<Quiz>(entity =>
-			{
-				entity.HasIndex(q => q.Title);
+			// Konfiguracija veza
+			modelBuilder.Entity<Quiz>()
+				.HasOne(q => q.Category)
+				.WithMany(c => c.Quizzes)
+				.HasForeignKey(q => q.CategoryId);
 
-				entity.HasOne(q => q.Category)
-					  .WithMany(c => c.Quizzes)
-					  .HasForeignKey(q => q.CategoryId)
-					  .OnDelete(DeleteBehavior.Restrict);
+			modelBuilder.Entity<Quiz>()
+				.HasOne(q => q.CreatedByUser)
+				.WithMany(u => u.CreatedQuizzes)
+				.HasForeignKey(q => q.CreatedByUserId);
 
-				entity.HasMany(q => q.Questions)
-					  .WithOne(qu => qu.Quiz)
-					  .HasForeignKey(qu => qu.QuizId)
-					  .OnDelete(DeleteBehavior.Cascade);
+			modelBuilder.Entity<Question>()
+				.HasOne(q => q.Quiz)
+				.WithMany(qz => qz.Questions)
+				.HasForeignKey(q => q.QuizId);
 
-				entity.HasMany(q => q.QuizResults)
-					  .WithOne(qr => qr.Quiz)
-					  .HasForeignKey(qr => qr.QuizId)
-					  .OnDelete(DeleteBehavior.Cascade);
-			});
-		}
+			modelBuilder.Entity<QuizResult>()
+				.HasOne(qr => qr.User)
+				.WithMany(u => u.QuizResults)
+				.HasForeignKey(qr => qr.UserId);
 
-		private void ConfigureQuestion(ModelBuilder modelBuilder)
-		{
-			modelBuilder.Entity<Question>(entity =>
-			{
-				entity.HasMany(q => q.AnswerOptions)
-					  .WithOne(ao => ao.Question)
-					  .HasForeignKey(ao => ao.QuestionId)
-					  .OnDelete(DeleteBehavior.Cascade);
-			});
-		}
+			modelBuilder.Entity<QuizResult>()
+				.HasOne(qr => qr.Quiz)
+				.WithMany(q => q.QuizResults)
+				.HasForeignKey(qr => qr.QuizId);
 
-		private void ConfigureQuizResult(ModelBuilder modelBuilder)
-		{
-			modelBuilder.Entity<QuizResult>(entity =>
-			{
-				entity.HasMany(qr => qr.UserAnswers)
-					  .WithOne(ua => ua.QuizResult)
-					  .HasForeignKey(ua => ua.QuizResultId)
-					  .OnDelete(DeleteBehavior.Cascade);
-			});
+			modelBuilder.Entity<UserAnswer>()
+				.HasOne(ua => ua.QuizResult)
+				.WithMany(qr => qr.UserAnswers)
+				.HasForeignKey(ua => ua.QuizResultId);
 
-			modelBuilder.Entity<UserAnswer>(entity =>
-			{
-				entity.HasMany(ua => ua.SelectedAnswers)
-					  .WithOne(sa => sa.UserAnswer)
-					  .HasForeignKey(sa => sa.UserAnswerId)
-					  .OnDelete(DeleteBehavior.Cascade);
-			});
+			modelBuilder.Entity<SelectedAnswer>()
+				.HasOne(sa => sa.AnswerOption)
+				.WithMany()
+				.HasForeignKey(sa => sa.AnswerOptionId);
 		}
 	}
 }

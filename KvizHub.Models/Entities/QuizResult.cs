@@ -12,16 +12,17 @@ namespace KvizHub.Models.Entities
 		public int Score { get; set; }
 		public int TotalQuestions { get; set; }
 		public double Percentage { get; set; }
-		public int TimeSpent { get; set; } // u sekundama
+		public int TimeSpent { get; set; } // sekunde
 		public DateTime CompletedAt { get; set; } = DateTime.UtcNow;
 
-		// Foreign keys
 		public int UserId { get; set; }
 		public int QuizId { get; set; }
 
-		// Navigation properties
 		public User User { get; set; } = null!;
 		public Quiz Quiz { get; set; } = null!;
+
+		// UserAnswers sada čuvamo **bez FK ka Question**, samo vezu ka QuizResult
 		public ICollection<UserAnswer> UserAnswers { get; set; } = new List<UserAnswer>();
 	}
+
 }
