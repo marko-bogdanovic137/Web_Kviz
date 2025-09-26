@@ -1,11 +1,12 @@
-﻿using System;
+﻿using KvizHub.Core.Services.Interfaces;
+using KvizHub.Infrastructure.Data.Seed;
+using KvizHub.Models.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using KvizHub.Models.Entities;
-using KvizHub.Core.Services.Interfaces;
 
 namespace KvizHub.Infrastructure
 {
@@ -28,6 +29,7 @@ namespace KvizHub.Infrastructure
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
+			DataSeeder.SeedData(modelBuilder);
 
 			// Indeksi
 			modelBuilder.Entity<User>()

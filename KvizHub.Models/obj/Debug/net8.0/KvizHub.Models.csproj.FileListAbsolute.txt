@@ -1,0 +1,12 @@
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\bin\Debug\net8.0\KvizHub.Models.deps.json
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\bin\Debug\net8.0\KvizHub.Models.dll
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\bin\Debug\net8.0\KvizHub.Models.pdb
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.GeneratedMSBuildEditorConfig.editorconfig
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.AssemblyInfoInputs.cache
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.AssemblyInfo.cs
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.csproj.CoreCompileInputs.cache
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.sourcelink.json
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.dll
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\obj\Debug\net8.0\refint\KvizHub.Models.dll
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.pdb
+E:\Fakultet\Veb2\Web_KvizHub\KvizHub.Models\obj\Debug\net8.0\ref\KvizHub.Models.dll

@@ -50,8 +50,7 @@ namespace KvizHub.Infrastructure.Services.Implementations
 				CreatedAt = DateTime.UtcNow
 			};
 
-			// Hash-ovanje lozinke (sada čuvamo plain text, kasnije ćemo dodati hash)
-			user.PasswordHash = registerDto.Password; // OVO ĆEMO KASNIJE POPRAVITI!
+			user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerDto.Password);
 
 			_context.Users.Add(user);
 			await _context.SaveChangesAsync();
@@ -76,7 +75,7 @@ namespace KvizHub.Infrastructure.Services.Implementations
 				.FirstOrDefaultAsync(u => u.Username == loginDto.UsernameOrEmail ||
 										 u.Email == loginDto.UsernameOrEmail);
 
-			if (user == null || user.PasswordHash != loginDto.Password) // OVO ĆEMO POPRAVITI!
+			if (user == null || !BCrypt.Net.BCrypt.Verify(loginDto.Password, user.PasswordHash))
 			{
 				throw new Exception("Pogrešno korisničko ime/email ili lozinka.");
 			}

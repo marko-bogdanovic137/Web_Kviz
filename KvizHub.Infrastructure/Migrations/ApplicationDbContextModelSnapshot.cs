@@ -48,6 +48,72 @@ namespace KvizHub.Infrastructure.Migrations
                     b.HasIndex("QuestionId");
 
                     b.ToTable("AnswerOptions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsCorrect = true,
+                            Order = 1,
+                            QuestionId = 1,
+                            Text = "Programski jezik"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsCorrect = false,
+                            Order = 2,
+                            QuestionId = 1,
+                            Text = "Operativni sistem"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            IsCorrect = false,
+                            Order = 3,
+                            QuestionId = 1,
+                            Text = "Baza podataka"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            IsCorrect = false,
+                            Order = 4,
+                            QuestionId = 1,
+                            Text = "Web framework"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            IsCorrect = true,
+                            Order = 1,
+                            QuestionId = 2,
+                            Text = "int"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            IsCorrect = false,
+                            Order = 2,
+                            QuestionId = 2,
+                            Text = "string"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            IsCorrect = false,
+                            Order = 3,
+                            QuestionId = 2,
+                            Text = "bool"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            IsCorrect = false,
+                            Order = 4,
+                            QuestionId = 2,
+                            Text = "double"
+                        });
                 });
 
             modelBuilder.Entity("KvizHub.Models.Entities.Category", b =>
@@ -72,6 +138,32 @@ namespace KvizHub.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Kvizovi o programiranju i IT-u",
+                            Name = "Programiranje"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Istorijski događaji i ličnosti",
+                            Name = "Istorija"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Naučna dostignuća i otkrića",
+                            Name = "Nauka"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Sportske teme i takmičenja",
+                            Name = "Sport"
+                        });
                 });
 
             modelBuilder.Entity("KvizHub.Models.Entities.Question", b =>
@@ -104,6 +196,26 @@ namespace KvizHub.Infrastructure.Migrations
                     b.HasIndex("QuizId");
 
                     b.ToTable("Questions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Order = 1,
+                            Points = 1,
+                            QuizId = 1,
+                            Text = "Šta je C#?",
+                            Type = "MultipleChoice"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Order = 2,
+                            Points = 1,
+                            QuizId = 1,
+                            Text = "Koji tip podatka se koristi za cele brojeve?",
+                            Type = "MultipleChoice"
+                        });
                 });
 
             modelBuilder.Entity("KvizHub.Models.Entities.Quiz", b =>
@@ -147,6 +259,30 @@ namespace KvizHub.Infrastructure.Migrations
                     b.HasIndex("Title");
 
                     b.ToTable("Quizzes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            CreatedByUserId = 1,
+                            Description = "Osnovni koncepti C# programskog jezika",
+                            Difficulty = "Lako",
+                            IsActive = true,
+                            TimeLimit = 10,
+                            Title = "C# Osnove"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 1,
+                            CreatedByUserId = 1,
+                            Description = "Osnove web dizajna",
+                            Difficulty = "Srednje",
+                            IsActive = true,
+                            TimeLimit = 15,
+                            Title = "HTML i CSS"
+                        });
                 });
 
             modelBuilder.Entity("KvizHub.Models.Entities.QuizResult", b =>
@@ -246,6 +382,24 @@ namespace KvizHub.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 10,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Email = "admin@kvizhub.com",
+                            PasswordHash = "$2a$11$LQv3c1yqBWVHrnG0e8M/4e6u6t6Q1V8cY8QaJ8c6vY6dL9rV8cY8Qa",
+                            Username = "admin"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Email = "marko@example.com",
+                            PasswordHash = "$2a$11$KJv3c1yqBWVHrnG0e8M/4e6u6t6Q1V8cY8QaJ8c6vY6dL9rV8cY8Qb",
+                            Username = "marko"
+                        });
                 });
 
             modelBuilder.Entity("KvizHub.Models.Entities.UserAnswer", b =>

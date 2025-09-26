@@ -46,5 +46,34 @@ namespace KvizHub.Models.DTOs
 			public bool IsCorrect { get; set; }
 			public int Order { get; set; }
 		}
+		public class QuizDetailDTO
+		{
+			public int Id { get; set; }
+			public string Title { get; set; } = string.Empty;
+			public string Description { get; set; } = string.Empty;
+			public int TimeLimit { get; set; }
+			public string Difficulty { get; set; } = string.Empty;
+			public string CategoryName { get; set; } = string.Empty;
+			public int QuestionCount { get; set; }
+			public List<QuestionDetailDTO> Questions { get; set; } = new();
+		}
+
+		public class QuestionDetailDTO
+		{
+			public int Id { get; set; }
+			public string Text { get; set; } = string.Empty;
+			public string Type { get; set; } = string.Empty;
+			public int Points { get; set; }
+			public int Order { get; set; }
+			public List<AnswerOptionDTO> AnswerOptions { get; set; } = new();
+		}
+
+		public class AnswerOptionDTO
+		{
+			public int Id { get; set; }
+			public string Text { get; set; } = string.Empty;
+			public bool IsCorrect { get; set; }
+			public int Order { get; set; }
+		}
 	}
 }
