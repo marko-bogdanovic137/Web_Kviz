@@ -108,4 +108,42 @@ namespace KvizHub.Models.DTOs
         public int QuestionCount { get; set; }
         public DateTime CreatedAt { get; set; }
     }
+    // Dodaj u QuizDTOs.cs
+    public class CreateLiveQuizDTO
+    {
+        public string RoomName { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public int QuizId { get; set; }
+        public int MaxParticipants { get; set; } = 50;
+        public DateTime ScheduledStart { get; set; }
+        public int QuestionTimeLimit { get; set; } = 30; // sekundi
+    }
+
+    public class LiveQuizResult
+    {
+        public bool IsCorrect { get; set; }
+        public int PointsEarned { get; set; }
+        public int BasePoints { get; set; }
+        public int SpeedBonus { get; set; }
+        public double ResponseTimeSeconds { get; set; }
+    }
+
+    public class LiveQuizSummary
+    {
+        public string RoomCode { get; set; } = string.Empty;
+        public string RoomName { get; set; } = string.Empty;
+        public int TotalQuestions { get; set; }
+        public int CurrentQuestion { get; set; }
+        public List<LiveQuizParticipantDTO> Participants { get; set; } = new();
+    }
+
+    public class LiveQuizParticipantDTO
+    {
+        public int UserId { get; set; }
+        public string Username { get; set; } = string.Empty;
+        public string? ProfileImage { get; set; }
+        public int Score { get; set; }
+        public int CorrectAnswers { get; set; }
+        public bool IsConnected { get; set; }
+    }
 }

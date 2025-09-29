@@ -34,8 +34,18 @@ namespace KvizHub.Infrastructure.Services.Implementations
 
 		public async Task<LoginResponseDTO> RegisterAsync(RegisterRequestDTO registerDto)
 		{
-			// Provera da li korisnik već postoji
-			if (await UserExistsAsync(registerDto.Username, registerDto.Email))
+            if (string.IsNullOrWhiteSpace(registerDto.Password) || registerDto.Password.Length < 6)
+            {
+                throw new Exception("Lozinka mora imati najmanje 6 karaktera.");
+            }
+
+            if (!registerDto.Email.Contains("@") || !registerDto.Email.Contains("."))
+            {
+                throw new Exception("Email adresa nije validna.");
+            }
+
+            // Provera da li korisnik već postoji
+            if (await UserExistsAsync(registerDto.Username, registerDto.Email))
 			{
 				throw new Exception("Korisnik sa ovim username-om ili email-om već postoji.");
 			}
@@ -115,5 +125,5 @@ namespace KvizHub.Infrastructure.Services.Implementations
 
 			return new JwtSecurityTokenHandler().WriteToken(token);
 		}
-	}
+    }
 }

@@ -5,6 +5,7 @@ using KvizHub.Infrastructure.Services.Interfaces;
 using KvizHub.Infrastructure.Data;
 using KvizHub.Infrastructure.Mapping;
 using Web_KvizHub.Middleware;
+using KvizHub.Infrastructure.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,19 @@ builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IQuizService, QuizService>();
 builder.Services.AddScoped<IQuizSolvingService, QuizSolvingService>();
 builder.Services.AddScoped<ILeaderboardService, LeaderboardService>();
+builder.Services.AddScoped<ILiveQuizService, LiveQuizService>();
+builder.Services.AddSignalR();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200", "https://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
 
 var app = builder.Build();
 
@@ -42,6 +56,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.UseCors("AllowAngular");
+app.MapHub<LiveQuizHub>("/liveQuizHub");
 
 app.Run();
 

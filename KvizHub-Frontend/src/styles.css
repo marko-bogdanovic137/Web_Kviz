@@ -1,0 +1,41 @@
+/* Tamno zelena-crna tema */
+:root {
+  --primary-dark: #0A2F1C;    /* Tamno zelena */
+  --primary-main: #1B5E3A;    /* Srednje zelena */
+  --primary-light: #2E8B57;   /* Svetlo zelena */
+  --accent-color: #4CAF50;    /* Akcent zelena */
+  --background-dark: #0A0A0A; /* Crna pozadina */
+  --background-card: #1A1A1A; /* Tamno siva za kartice */
+  --text-primary: #E8F5E8;    /* Svetlo zelena za tekst */
+  --text-secondary: #B8D4B8;  /* Srednje zelena za tekst */
+  --border-color: #2E8B57;    /* Zelena za border */
+  --error-color: #F44336;     /* Crvena za errore */
+}
+
+/* Globalni reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Utility klase */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }

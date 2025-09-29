@@ -25,8 +25,10 @@ namespace KvizHub.Infrastructure
 		public DbSet<QuizResult> QuizResults { get; set; }
 		public DbSet<UserAnswer> UserAnswers { get; set; }
 		public DbSet<SelectedAnswer> SelectedAnswers { get; set; }
+        public DbSet<LiveQuizRoom> LiveQuizRooms { get; set; }
+        public DbSet<LiveQuizParticipant> LiveQuizParticipants { get; set; }
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
 			DataSeeder.SeedData(modelBuilder);
