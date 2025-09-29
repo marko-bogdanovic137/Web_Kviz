@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Fr2x04Ha8MA=",
+  "dgSpecHash": "k7vtmwBcm7g=",
   "success": true,
-  "projectFilePath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\Web_KvizHub\\Web_KvizHub.csproj",
+  "projectFilePath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\Web_KvizHub\\Web_KvizHub.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marko\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

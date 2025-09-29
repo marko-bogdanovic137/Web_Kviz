@@ -113,6 +113,38 @@ namespace KvizHub.Infrastructure.Migrations
                             Order = 4,
                             QuestionId = 2,
                             Text = "double"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            IsCorrect = true,
+                            Order = 1,
+                            QuestionId = 3,
+                            Text = "Avgust"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            IsCorrect = false,
+                            Order = 2,
+                            QuestionId = 3,
+                            Text = "Julije Cezar"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            IsCorrect = false,
+                            Order = 3,
+                            QuestionId = 3,
+                            Text = "Neron"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            IsCorrect = false,
+                            Order = 4,
+                            QuestionId = 3,
+                            Text = "Marko Aurelije"
                         });
                 });
 
@@ -215,6 +247,15 @@ namespace KvizHub.Infrastructure.Migrations
                             QuizId = 1,
                             Text = "Koji tip podatka se koristi za cele brojeve?",
                             Type = "MultipleChoice"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Order = 1,
+                            Points = 2,
+                            QuizId = 3,
+                            Text = "Ko je bio prvi rimski car?",
+                            Type = "MultipleChoice"
                         });
                 });
 
@@ -282,6 +323,17 @@ namespace KvizHub.Infrastructure.Migrations
                             IsActive = true,
                             TimeLimit = 15,
                             Title = "HTML i CSS"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 2,
+                            CreatedByUserId = 1,
+                            Description = "Znanje o antičkom Rimu",
+                            Difficulty = "Teško",
+                            IsActive = true,
+                            TimeLimit = 20,
+                            Title = "Istorija Rimskog Carstva"
                         });
                 });
 
@@ -386,7 +438,7 @@ namespace KvizHub.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 10,
+                            Id = 1,
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Email = "admin@kvizhub.com",
                             PasswordHash = "$2a$11$LQv3c1yqBWVHrnG0e8M/4e6u6t6Q1V8cY8QaJ8c6vY6dL9rV8cY8Qa",
@@ -394,7 +446,7 @@ namespace KvizHub.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 20,
+                            Id = 2,
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Email = "marko@example.com",
                             PasswordHash = "$2a$11$KJv3c1yqBWVHrnG0e8M/4e6u6t6Q1V8cY8QaJ8c6vY6dL9rV8cY8Qb",

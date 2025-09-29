@@ -1,6 +1,5 @@
 ﻿using KvizHub.Infrastructure.Services.Interfaces;
 using KvizHub.Models.DTOs;
-using KvizHub.Models.DTOs.KvizHub.Models.DTOs;
 using KvizHub.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;

@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KvizHub.Models.DTOs
-{
 	namespace KvizHub.Models.DTOs
 	{
 		// DTO za registraciju
@@ -50,5 +48,3 @@ namespace KvizHub.Models.DTOs
 			public string? ProfileImage { get; set; }
 		}
 	}
-
-}

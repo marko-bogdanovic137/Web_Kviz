@@ -1188,14 +1188,12 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.9"
         },
         "runtime": {
-          "KvizHub.Core.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "KvizHub.Core.dll": {}
         }
       },
       "KvizHub.Infrastructure/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "BCrypt.Net-Next": "4.0.3",
           "KvizHub.Core": "1.0.0",
           "KvizHub.Models": "1.0.0",
@@ -1206,18 +1204,12 @@
           "Microsoft.Extensions.Configuration.Abstractions": "9.0.9"
         },
         "runtime": {
-          "KvizHub.Infrastructure.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "KvizHub.Infrastructure.dll": {}
         }
       },
       "KvizHub.Models/1.0.0": {
         "runtime": {
-          "KvizHub.Models.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "KvizHub.Models.dll": {}
         }
       }
     }

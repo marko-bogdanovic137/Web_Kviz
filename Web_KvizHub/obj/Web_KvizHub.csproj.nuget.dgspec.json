@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Fakultet\\Veb2\\Web_KvizHub\\Web_KvizHub\\Web_KvizHub.csproj": {}
+    "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\Web_KvizHub\\Web_KvizHub.csproj": {}
   },
   "projects": {
-    "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Core\\KvizHub.Core.csproj": {
+    "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Core\\KvizHub.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Core\\KvizHub.Core.csproj",
+        "projectUniqueName": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Core\\KvizHub.Core.csproj",
         "projectName": "KvizHub.Core",
-        "projectPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Core\\KvizHub.Core.csproj",
+        "projectPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Core\\KvizHub.Core.csproj",
         "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
-        "outputPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Core\\obj\\",
+        "outputPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,14 +22,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Models\\KvizHub.Models.csproj": {
-                "projectPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Models\\KvizHub.Models.csproj"
+              "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Models\\KvizHub.Models.csproj": {
+                "projectPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Models\\KvizHub.Models.csproj"
               }
             }
           }
@@ -47,8 +44,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -75,25 +71,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Infrastructure\\KvizHub.Infrastructure.csproj": {
+    "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Infrastructure\\KvizHub.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Infrastructure\\KvizHub.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Infrastructure\\KvizHub.Infrastructure.csproj",
         "projectName": "KvizHub.Infrastructure",
-        "projectPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Infrastructure\\KvizHub.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Infrastructure\\KvizHub.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
-        "outputPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -101,17 +93,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Core\\KvizHub.Core.csproj": {
-                "projectPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Core\\KvizHub.Core.csproj"
+              "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Core\\KvizHub.Core.csproj": {
+                "projectPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Core\\KvizHub.Core.csproj"
               },
-              "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Models\\KvizHub.Models.csproj": {
-                "projectPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Models\\KvizHub.Models.csproj"
+              "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Models\\KvizHub.Models.csproj": {
+                "projectPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Models\\KvizHub.Models.csproj"
               }
             }
           }
@@ -125,13 +118,16 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
@@ -173,25 +169,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Models\\KvizHub.Models.csproj": {
+    "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Models\\KvizHub.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Models\\KvizHub.Models.csproj",
+        "projectUniqueName": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Models\\KvizHub.Models.csproj",
         "projectName": "KvizHub.Models",
-        "projectPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Models\\KvizHub.Models.csproj",
+        "projectPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Models\\KvizHub.Models.csproj",
         "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
-        "outputPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Models\\obj\\",
+        "outputPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Models\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -199,6 +191,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -216,8 +209,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -238,25 +230,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Fakultet\\Veb2\\Web_KvizHub\\Web_KvizHub\\Web_KvizHub.csproj": {
+    "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\Web_KvizHub\\Web_KvizHub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Fakultet\\Veb2\\Web_KvizHub\\Web_KvizHub\\Web_KvizHub.csproj",
+        "projectUniqueName": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\Web_KvizHub\\Web_KvizHub.csproj",
         "projectName": "Web_KvizHub",
-        "projectPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\Web_KvizHub\\Web_KvizHub.csproj",
+        "projectPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\Web_KvizHub\\Web_KvizHub.csproj",
         "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
-        "outputPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\Web_KvizHub\\obj\\",
+        "outputPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\Web_KvizHub\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -264,20 +252,21 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Core\\KvizHub.Core.csproj": {
-                "projectPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Core\\KvizHub.Core.csproj"
+              "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Core\\KvizHub.Core.csproj": {
+                "projectPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Core\\KvizHub.Core.csproj"
               },
-              "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Infrastructure\\KvizHub.Infrastructure.csproj": {
-                "projectPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Infrastructure\\KvizHub.Infrastructure.csproj"
+              "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Infrastructure\\KvizHub.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Infrastructure\\KvizHub.Infrastructure.csproj"
               },
-              "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Models\\KvizHub.Models.csproj": {
-                "projectPath": "E:\\Fakultet\\Veb2\\Web_KvizHub\\KvizHub.Models\\KvizHub.Models.csproj"
+              "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Models\\KvizHub.Models.csproj": {
+                "projectPath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Models\\KvizHub.Models.csproj"
               }
             }
           }
@@ -291,8 +280,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -346,7 +334,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
