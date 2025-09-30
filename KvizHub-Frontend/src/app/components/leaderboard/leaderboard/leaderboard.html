@@ -1,0 +1,70 @@
+<div class="leaderboard-container">
+    <button routerLink="/dashboard" class="back-btn">← Nazad na Dashboard</button>
+  <div class="leaderboard-header">
+    <h1>🏆 Rang Lista</h1>
+    <p>Najbolji igrači na platformi</p>
+  </div>
+
+  <!-- Filter vremenskog perioda -->
+  <div class="filter-section">
+  <label>Vremenski period:</label>
+  <select 
+    [(ngModel)]="timeFrame" 
+    (ngModelChange)="onTimeFrameChange()" 
+    class="time-filter">
+    <option value="all">Svo Vreme</option>
+    <option value="weekly">Nedeljni</option>
+    <option value="monthly">Mesečni</option>
+  </select>
+</div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">Učitavanje rang liste...</div>
+
+  <!-- Tabela rang liste -->
+  <div *ngIf="!isLoading" class="leaderboard-table">
+    <div class="table-header">
+      <div class="col-rank">Rank</div>
+      <div class="col-user">Korisnik</div>
+      <div class="col-score">Ukupni Score</div>
+      <div class="col-quizzes">Kvizova</div>
+      <div class="col-avg">Prosek</div>
+    </div>
+
+    <div *ngFor="let player of leaderboard" 
+         class="table-row"
+         [class]="getRankClass(player.rank)">
+      <div class="col-rank">
+        <span class="rank-badge" [class]="getRankClass(player.rank)">
+          {{ player.rank }}
+        </span>
+      </div>
+      <div class="col-user">
+        <span class="username">{{ player.username }}</span>
+      </div>
+      <div class="col-score">
+        <span class="score-value">{{ player.totalScore }}</span>
+        <span class="score-label">bodova</span>
+      </div>
+      <div class="col-quizzes">
+        {{ player.quizzesCompleted }}
+      </div>
+      <div class="col-avg">
+        <span class="percentage">{{ player.averagePercentage }}%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Informacija -->
+  <div class="info-section">
+    <p>🎯 Rezultati se ažuriraju u realnom vremenu</p>
+    <p>⚡ Učestvujte u kvizovima da biste se popeli na listu!</p>
+  </div>
+
+  <!-- Nema podataka -->
+<div *ngIf="!isLoading && leaderboard.length === 0" class="no-data">
+  <h3>📊 Trenutno nema podataka za rang listu</h3>
+  <p>Budite prvi koji će završiti kviz i pojavićete se ovde!</p>
+  <button routerLink="/quizzes" class="btn-primary">Započni Kviz</button>
+</div>
+</div>

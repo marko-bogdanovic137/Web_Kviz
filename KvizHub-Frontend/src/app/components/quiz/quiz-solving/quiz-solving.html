@@ -1,0 +1,115 @@
+<div class="quiz-solving-container">
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">Učitavanje kviza...</div>
+
+  <!-- Kviz u toku -->
+  <div *ngIf="!isLoading && quiz && !quizCompleted" class="quiz-in-progress">
+    <!-- Header sa progresom i tajmerom -->
+    <div class="quiz-header">
+      <div class="quiz-info">
+        <h1>{{ quiz.title }}</h1>
+        <p>Pitanje {{ currentQuestionIndex + 1 }} od {{ quiz.questions.length }}</p>
+      </div>
+      
+      <div class="timer-section">
+        <div class="timer" [class.warning]="timeLeft < 60">
+          ⏱️ {{ formatTime(timeLeft) }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar">
+      <div class="progress-fill" [style.width.%]="progress"></div>
+    </div>
+
+    <!-- Trenutno pitanje -->
+    <div class="question-section">
+      <h2 class="question-text">{{ currentQuestion.text }}</h2>
+      <p class="question-type">Tip: {{ currentQuestion.type }}</p>
+      <p class="question-points">Bodovi: {{ currentQuestion.points }}</p>
+
+      <!-- Multiple Choice/Answer -->
+      <div *ngIf="currentQuestion.type === 'MultipleChoice' || currentQuestion.type === 'MultipleAnswer'" 
+           class="answers-grid">
+        <div *ngFor="let answer of currentQuestion.answerOptions" 
+             class="answer-option"
+             [class.selected]="isAnswerSelected(answer.id)"
+             (click)="selectAnswer(answer.id)">
+          <span class="answer-checkbox">
+            {{ currentQuestion.type === 'MultipleChoice' ? '○' : '□' }}
+          </span>
+          <span class="answer-text">{{ answer.text }}</span>
+        </div>
+      </div>
+
+      <!-- Fill in the blank -->
+      <div *ngIf="currentQuestion.type === 'FillInBlank'" class="fill-in-section">
+        <input
+          type="text"
+          [(ngModel)]="fillInAnswer"
+          placeholder="Unesite svoj odgovor..."
+          class="fill-in-input">
+      </div>
+
+      <!-- True/False -->
+      <div *ngIf="currentQuestion.type === 'TrueFalse'" class="true-false-section">
+        <div class="true-false-options">
+          <button 
+            class="tf-btn"
+            [class.selected]="isAnswerSelected(1)"
+            (click)="selectAnswer(1)">
+            ✅ Tačno
+          </button>
+          <button 
+            class="tf-btn"
+            [class.selected]="isAnswerSelected(2)"
+            (click)="selectAnswer(2)">
+            ❌ Netačno
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigacioni dugmići -->
+    <div class="navigation-buttons">
+      <button 
+        (click)="previousQuestion()" 
+        [disabled]="currentQuestionIndex === 0"
+        class="nav-btn prev-btn">
+        ← Prethodno
+      </button>
+      
+      <button 
+        (click)="nextQuestion()" 
+        class="nav-btn next-btn">
+        {{ currentQuestionIndex === quiz.questions.length - 1 ? 'Završi Kviz' : 'Sledeće →' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Rezultat kviza -->
+<div *ngIf="quizCompleted" class="quiz-result">
+  <div class="result-card">
+    <h2>Kviz Završen! 🎉</h2>
+    
+    <div class="result-stats">
+      <div class="stat-item">
+        <span class="stat-label">Osvojeni bodovi:</span>
+        <span class="stat-value">{{ quizResult?.score }}/{{ quizResult?.totalQuestions }}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Procenat tačnosti:</span>
+        <span class="stat-value">{{ quizResult?.percentage | number:'1.0-0' }}%</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Potrošeno vreme:</span>
+        <span class="stat-value">{{ formatTime(quizResult?.timeSpent || 0) }}</span>
+      </div>
+    </div>
+
+    <button (click)="goToDashboard()" class="dashboard-btn">
+      Vrati se na Dashboard
+    </button>
+  </div>
+</div>

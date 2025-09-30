@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "825WstVX00U=",
+  "dgSpecHash": "PVzJ5OUxfbA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\marko\\Desktop\\Web\\Web_Kviz\\KvizHub.Core\\KvizHub.Core.csproj",
+  "projectFilePath": "C:\\Users\\marko\\Desktop\\Web_Kviz\\KvizHub.Core\\KvizHub.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marko\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\marko\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

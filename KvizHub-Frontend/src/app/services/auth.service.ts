@@ -13,15 +13,6 @@ export class AuthService {
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
 
-  constructor() {
-    // Proveri localStorage pri pokretanju
-    const token = localStorage.getItem('token');
-    const userData = localStorage.getItem('currentUser');
-    if (token && userData) {
-      this.currentUserSubject.next(JSON.parse(userData));
-    }
-  }
-
   login(loginData: LoginRequest): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, loginData)
       .pipe(
@@ -34,15 +25,17 @@ export class AuthService {
   }
 
   register(registerData: RegisterRequest): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/register`, registerData)
-      .pipe(
-        tap(response => {
-          if (response.token) {
-            this.setSession(response);
-          }
-        })
-      );
-  }
+  const { confirmPassword, ...dataToSend } = registerData;
+  
+  return this.http.post<any>(`${this.apiUrl}/register`, dataToSend)
+    .pipe(
+      tap(response => {
+        if (response.token) {
+          this.setSession(response);
+        }
+      })
+    );
+}
 
   private setSession(authData: any): void {
     localStorage.setItem('token', authData.token);
@@ -52,7 +45,7 @@ export class AuthService {
       username: authData.username,
       email: authData.email,
       profileImage: authData.profileImage,
-      createdAt: new Date()
+       createdAt: authData.createdAt ? new Date(authData.createdAt) : new Date()
     };
     
     localStorage.setItem('currentUser', JSON.stringify(user));

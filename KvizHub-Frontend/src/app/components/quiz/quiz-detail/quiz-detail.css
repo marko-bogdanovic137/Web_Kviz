@@ -1,0 +1,121 @@
+.quiz-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 20px;
+  min-height: 100vh;
+  background: var(--background-dark);
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: var(--primary-main);
+}
+
+.quiz-detail {
+  background: var(--background-card);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-header h1 {
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.quiz-description {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.quiz-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--background-dark);
+  border-radius: 8px;
+}
+
+.label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.value {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.questions-preview {
+  margin-bottom: 2rem;
+}
+
+.questions-preview h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.question-item {
+  background: var(--background-dark);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--primary-main);
+}
+
+.question-type {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.start-quiz-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary-main);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-quiz-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}

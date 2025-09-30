@@ -1,0 +1,82 @@
+<div class="profile-container">
+  <button routerLink="/dashboard" class="back-btn">← Nazad na Dashboard</button>
+
+  <div class="profile-header">
+    <div class="user-info">
+      <div class="avatar">
+        {{ currentUser?.username?.charAt(0)?.toUpperCase() }}
+      </div>
+      <div class="user-details">
+        <h1>{{ currentUser?.username }}</h1>
+        <p class="user-email">{{ currentUser?.email }}</p>
+        <!-- Koristi novu metodu umesto direktnog poziva -->
+        <p class="member-since">Član od: {{ getFormattedCreatedAt() }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Statistika -->
+  <div class="stats-section">
+    <h2>📊 Moja Statistika</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📚</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ stats.totalQuizzes || 0 }}</span>
+          <span class="stat-label">Urađenih Kvizova</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ stats.totalScore || 0 }}</span>
+          <span class="stat-label">Ukupnih Bodova</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ stats.averagePercentage || 0 }}%</span>
+          <span class="stat-label">Prosečna Tačnost</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">⏱️</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ formatTime(stats.totalTimeSpent || 0) }}</span>
+          <span class="stat-label">Ukupno Vreme</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Istorija kvizova -->
+  <div class="history-section">
+    <h2>📝 Istorija Kvizova</h2>
+    
+    <div *ngIf="isLoading" class="loading">Učitavanje istorije...</div>
+    
+    <div *ngIf="!isLoading && quizHistory.length === 0" class="no-history">
+      <p>Još uvek niste uradili nijedan kviz.</p>
+      <button routerLink="/quizzes" class="btn-primary">Započni Prvi Kviz</button>
+    </div>
+
+    <div *ngIf="!isLoading && quizHistory.length > 0" class="history-list">
+      <div *ngFor="let quiz of quizHistory" class="history-item">
+        <div class="quiz-info">
+          <h3>{{ quiz.quizTitle }}</h3>
+          <p class="quiz-date">{{ formatDate(quiz.completedAt) }}</p>
+        </div>
+        
+        <div class="quiz-result">
+          <span class="score">{{ quiz.score }}/{{ quiz.totalQuestions }}</span>
+          <span class="percentage">{{ quiz.percentage }}%</span>
+          <span class="time">{{ formatTime(quiz.timeSpent) }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

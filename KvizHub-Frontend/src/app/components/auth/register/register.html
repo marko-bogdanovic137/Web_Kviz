@@ -1,0 +1,81 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="text-center">Registracija</h2>
+    
+    <form (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="username">Korisničko ime *</label>
+        <input
+          type="text"
+          id="username"
+          [(ngModel)]="registerData.username"
+          name="username"
+          required
+          class="form-input"
+          placeholder="Unesite korisničko ime">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="registerData.email"
+          name="email"
+          required
+          class="form-input"
+          placeholder="Unesite email">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Lozinka *</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="registerData.password"
+          name="password"
+          required
+          class="form-input"
+          placeholder="Unesite lozinku (min. 6 karaktera)">
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Potvrdite lozinku *</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          [(ngModel)]="registerData.confirmPassword"
+          name="confirmPassword"
+          required
+          class="form-input"
+          placeholder="Ponovite lozinku">
+      </div>
+
+      <div class="form-group">
+        <label for="profileImage">Profilna slika (opciono)</label>
+        <input
+          type="text"
+          id="profileImage"
+          [(ngModel)]="registerData.profileImage"
+          name="profileImage"
+          class="form-input"
+          placeholder="URL profilne slike">
+      </div>
+
+      <button 
+        type="submit" 
+        class="btn-primary"
+        [disabled]="isLoading">
+        {{ isLoading ? 'Registrujem...' : 'Registruj se' }}
+      </button>
+
+      <div class="auth-links">
+        <p>Već imate nalog? <a routerLink="/login" class="auth-link">Prijavite se</a></p>
+      </div>
+    </form>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>

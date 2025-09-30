@@ -1,0 +1,38 @@
+<div class="quiz-detail-container">
+  <button (click)="goBack()" class="back-btn">← Nazad</button>
+
+  <div *ngIf="isLoading" class="loading">Učitavanje kviza...</div>
+
+  <div *ngIf="!isLoading && quiz" class="quiz-detail">
+    <div class="quiz-header">
+      <h1>{{ quiz.title }}</h1>
+      <span class="difficulty-badge" [class]="quiz.difficulty?.toLowerCase()">
+        {{ quiz.difficulty }}
+      </span>
+    </div>
+
+    <p class="quiz-description">{{ quiz.description }}</p>
+
+    <div class="quiz-info">
+      <div class="info-item">
+        <span class="label">Kategorija:</span>
+        <span class="value">{{ quiz.categoryName }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Vremensko ograničenje:</span>
+        <span class="value">{{ quiz.timeLimit }} minuta</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Broj pitanja:</span>
+        <span class="value">{{ quiz.questionCount }}</span>
+      </div>
+    </div>
+
+    <button (click)="startQuiz()" class="start-quiz-btn">Započni Kviz</button>
+  </div>
+
+  <div *ngIf="!isLoading && !quiz" class="error">
+    <h3>Kviz nije pronađen</h3>
+    <button (click)="goBack()" class="back-btn">Vrati se na listu kvizova</button>
+  </div>
+</div>

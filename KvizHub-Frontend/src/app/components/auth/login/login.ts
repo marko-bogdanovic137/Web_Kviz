@@ -26,22 +26,26 @@ export class LoginComponent {
   ) {}
 
   onSubmit(): void {
-    this.isLoading = true;
-    this.errorMessage = '';
+  this.isLoading = true;
+  this.errorMessage = '';
 
-    this.authService.login(this.loginData).subscribe({
-      next: (response) => {
-        this.isLoading = false;
-        if (response.data?.token) {
-          this.router.navigate(['/dashboard']);
-        } else {
-          this.errorMessage = response.message || 'Login failed';
-        }
-      },
-      error: (error) => {
-        this.isLoading = false;
-        this.errorMessage = error.error?.message || 'An error occurred during login';
+  this.authService.login(this.loginData).subscribe({
+    next: (response) => {
+      this.isLoading = false;
+      // Proveri da li postoji token (uspešan login)
+      if (response && response.token) {
+        this.router.navigate(['/dashboard']);
+      } else {
+        // Ako backend vraća error message direktno
+        this.errorMessage = response.message || 'Pogrešni podaci za prijavu';
       }
-    });
-  }
+    },
+    error: (error) => {
+      this.isLoading = false;
+      // Backend vraća error u error.error
+      this.errorMessage = error.error?.message || error.message || 'Došlo je do greške';
+      console.error('Login error:', error);
+    }
+  });
+}
 }

@@ -1,5 +1,199 @@
 [
   {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "GetAllCategories",
+    "RelativePath": "api/Admin/categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "CreateCategory",
+    "RelativePath": "api/Admin/categories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "KvizHub.Models.Entities.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "UpdateCategory",
+    "RelativePath": "api/Admin/categories/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "category",
+        "Type": "KvizHub.Models.Entities.Category",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "DeleteCategory",
+    "RelativePath": "api/Admin/categories/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "GetAllQuizzes",
+    "RelativePath": "api/Admin/quizzes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "includeInactive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "CreateQuiz",
+    "RelativePath": "api/Admin/quizzes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createQuizDto",
+        "Type": "KvizHub.Models.DTOs.CreateQuizDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "UpdateQuiz",
+    "RelativePath": "api/Admin/quizzes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateQuizDto",
+        "Type": "KvizHub.Models.DTOs.CreateQuizDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "ToggleQuizStatus",
+    "RelativePath": "api/Admin/quizzes/{id}/toggle",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "GetAllResults",
+    "RelativePath": "api/Admin/results",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "GetResultsByQuiz",
+    "RelativePath": "api/Admin/results/quiz/{quizId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "quizId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "GetResultsByUser",
+    "RelativePath": "api/Admin/results/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "GetAdminStats",
+    "RelativePath": "api/Admin/stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.AdminController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Admin/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Web_KvizHub.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
@@ -9,7 +203,7 @@
     "Parameters": [
       {
         "Name": "loginDto",
-        "Type": "KvizHub.Models.DTOs.KvizHub.Models.DTOs.LoginRequestDTO",
+        "Type": "KvizHub.Models.DTOs.LoginRequestDTO",
         "IsRequired": true
       }
     ],
@@ -25,7 +219,261 @@
     "Parameters": [
       {
         "Name": "registerDto",
-        "Type": "KvizHub.Models.DTOs.KvizHub.Models.DTOs.RegisterRequestDTO",
+        "Type": "KvizHub.Models.DTOs.RegisterRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LeaderboardController",
+    "Method": "GetGlobalLeaderboard",
+    "RelativePath": "api/Leaderboard/global",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "timeFrame",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LeaderboardController",
+    "Method": "GetMyRank",
+    "RelativePath": "api/Leaderboard/my-rank",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "timeFrame",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LeaderboardController",
+    "Method": "GetQuizLeaderboard",
+    "RelativePath": "api/Leaderboard/quiz/{quizId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "quizId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "timeFrame",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LiveQuizController",
+    "Method": "GetActiveRooms",
+    "RelativePath": "api/LiveQuiz/rooms",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LiveQuizController",
+    "Method": "CreateRoom",
+    "RelativePath": "api/LiveQuiz/rooms",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createDto",
+        "Type": "KvizHub.Models.DTOs.CreateLiveQuizDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LiveQuizController",
+    "Method": "GetRoom",
+    "RelativePath": "api/LiveQuiz/rooms/{roomCode}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomCode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LiveQuizController",
+    "Method": "JoinRoom",
+    "RelativePath": "api/LiveQuiz/rooms/{roomCode}/join",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomCode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LiveQuizController",
+    "Method": "GetLeaderboard",
+    "RelativePath": "api/LiveQuiz/rooms/{roomCode}/leaderboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomCode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LiveQuizController",
+    "Method": "GetRoomParticipants",
+    "RelativePath": "api/LiveQuiz/rooms/{roomCode}/participants",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomCode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LiveQuizController",
+    "Method": "StartQuestion",
+    "RelativePath": "api/LiveQuiz/rooms/{roomCode}/questions/{questionId}/start",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomCode",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "questionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LiveQuizController",
+    "Method": "EndQuestion",
+    "RelativePath": "api/LiveQuiz/rooms/{roomCode}/questions/end",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomCode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_KvizHub.Controllers.LiveQuizController",
+    "Method": "StartQuiz",
+    "RelativePath": "api/LiveQuiz/rooms/{roomCode}/start",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomCode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.QuizSolvingController",
+    "Method": "GetUserQuizHistory",
+    "RelativePath": "api/QuizSolving/history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.QuizSolvingController",
+    "Method": "GetQuizResult",
+    "RelativePath": "api/QuizSolving/result/{resultId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resultId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.QuizSolvingController",
+    "Method": "StartQuiz",
+    "RelativePath": "api/QuizSolving/start/{quizId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "quizId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.QuizSolvingController",
+    "Method": "SubmitQuiz",
+    "RelativePath": "api/QuizSolving/submit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "submission",
+        "Type": "QuizSubmissionDTO",
         "IsRequired": true
       }
     ],
@@ -51,7 +499,7 @@
     "Parameters": [
       {
         "Name": "createQuizDto",
-        "Type": "KvizHub.Models.DTOs.KvizHub.Models.DTOs.CreateQuizDTO",
+        "Type": "KvizHub.Models.DTOs.CreateQuizDTO",
         "IsRequired": true
       }
     ],
@@ -88,7 +536,7 @@
       },
       {
         "Name": "updateQuizDto",
-        "Type": "KvizHub.Models.DTOs.KvizHub.Models.DTOs.CreateQuizDTO",
+        "Type": "KvizHub.Models.DTOs.CreateQuizDTO",
         "IsRequired": true
       }
     ],

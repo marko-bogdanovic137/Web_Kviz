@@ -1,0 +1,222 @@
+.leaderboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 20px;
+  min-height: 100vh;
+  background: var(--background-dark);
+}
+
+.leaderboard-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.leaderboard-header h1 {
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.leaderboard-header p {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+}
+
+.filter-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.filter-section label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.time-filter {
+  padding: 8px 16px;
+  background: var(--background-card);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  min-width: 150px;
+}
+
+.leaderboard-table {
+  background: var(--background-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 100px 1fr 150px 100px 100px;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--primary-dark);
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 150px 100px 100px;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.3s ease;
+}
+
+.table-row:hover {
+  background: rgba(76, 175, 80, 0.05);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+/* Rank styles */
+.rank-first {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent);
+}
+
+.rank-second {
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.1), transparent);
+}
+
+.rank-third {
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.1), transparent);
+}
+
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.rank-first .rank-badge {
+  background: #FFD700;
+  color: black;
+}
+
+.rank-second .rank-badge {
+  background: #C0C0C0;
+  color: black;
+}
+
+.rank-third .rank-badge {
+  background: #CD7F32;
+  color: white;
+}
+
+.rank-other .rank-badge {
+  background: var(--background-dark);
+  color: var(--text-secondary);
+}
+
+/* Column styles */
+.col-user {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.col-score {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-value {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.score-label {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.col-quizzes {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+}
+
+.col-avg {
+  display: flex;
+  align-items: center;
+}
+
+.percentage {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.info-section {
+  text-align: center;
+  padding: 2rem;
+  background: var(--background-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.info-section p {
+  color: var(--text-secondary);
+  margin: 0.5rem 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+}
+.no-data {
+  text-align: center;
+  padding: 3rem;
+  background: var(--background-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.no-data h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.no-data p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+.back-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.back-btn:hover {
+  background: var(--primary-main);
+}

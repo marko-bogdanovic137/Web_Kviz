@@ -47,14 +47,13 @@ namespace Web_KvizHub.Controllers
 			return Ok(quizzes);
 		}
 
-		// TODO: Dodati autorizaciju za admin metode
+
 		[HttpPost]
 		public async Task<IActionResult> CreateQuiz([FromBody] CreateQuizDTO createQuizDto)
 		{
 			try
-			{
-				// TODO: Dohvatiti userId iz JWT tokena
-				int createdByUserId = 1; // Privremeno - zamenićemo sa pravim userId
+			{		
+				int createdByUserId = 1; 
 
 				var quiz = await _quizService.CreateQuizAsync(createQuizDto, createdByUserId);
 				return CreatedAtAction(nameof(GetQuizById), new { id = quiz.Id }, quiz);

@@ -22,3 +22,15 @@ C:\Users\marko\Desktop\Web\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\KvizHub.Mode
 C:\Users\marko\Desktop\Web\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\refint\KvizHub.Models.dll
 C:\Users\marko\Desktop\Web\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.pdb
 C:\Users\marko\Desktop\Web\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\ref\KvizHub.Models.dll
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\bin\Debug\net8.0\KvizHub.Models.deps.json
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\bin\Debug\net8.0\KvizHub.Models.dll
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\bin\Debug\net8.0\KvizHub.Models.pdb
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.AssemblyInfoInputs.cache
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.AssemblyInfo.cs
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.csproj.CoreCompileInputs.cache
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.sourcelink.json
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.dll
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\refint\KvizHub.Models.dll
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\KvizHub.Models.pdb
+C:\Users\marko\Desktop\Web_Kviz\KvizHub.Models\obj\Debug\net8.0\ref\KvizHub.Models.dll
