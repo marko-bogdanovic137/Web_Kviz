@@ -1,0 +1,164 @@
+.admin-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 20px;
+  min-height: 100vh;
+  background: var(--background-dark);
+}
+
+/* === HEADER === */
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: var(--text-secondary);
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: var(--primary-main);
+  color: white;
+}
+
+/* === KORISNICI === */
+.users-section {
+  margin-top: 2rem;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.user-card {
+  background: var(--background-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.user-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* Avatar */
+.user-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: var(--primary-main);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Informacije */
+.user-info {
+  flex: 1;
+}
+
+.user-info h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.user-email {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.user-joined {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Badge */
+.user-badges {
+  margin-top: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.admin-badge {
+  background: var(--accent-color);
+  color: white;
+}
+
+/* Akcije */
+.user-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btn-secondary,
+.btn-danger {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-weight: 500;
+}
+
+/* Rezultati dugme */
+.btn-secondary {
+  background: var(--primary-main);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+}
+
+/* Brisanje dugme */
+.btn-danger {
+  background: #f44336;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #ef5350;
+}
+
+/* Loading i no-data */
+.loading,
+.no-data {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}

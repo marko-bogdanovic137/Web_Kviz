@@ -1,0 +1,113 @@
+<div class="admin-container">
+  <div class="page-header">
+    <button routerLink="/admin" class="back-btn">← Nazad na Admin</button>
+    <h1>📚 Upravljanje Kategorijama</h1>
+    <p>Ukupno kategorija: {{ categories.length }}</p>
+  </div>
+
+  <!-- Kreiranje kategorije -->
+  <div class="create-section">
+    <button 
+      (click)="showCreateForm = !showCreateForm" 
+      class="btn-primary"
+    >
+      {{ showCreateForm ? '✖ Otkaži' : '➕ Nova Kategorija' }}
+    </button>
+
+    <div *ngIf="showCreateForm" class="create-form">
+      <h3>Kreiraj Novu Kategoriju</h3>
+      <div class="form-group">
+        <label>Naziv kategorije *</label>
+        <input 
+          type="text" 
+          [(ngModel)]="newCategory.name" 
+          placeholder="Unesi naziv kategorije"
+          class="form-input"
+        >
+      </div>
+      <div class="form-group">
+        <label>Opis (opciono)</label>
+        <textarea 
+          [(ngModel)]="newCategory.description" 
+          placeholder="Unesi opis kategorije"
+          class="form-textarea"
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="form-actions">
+        <button (click)="createCategory()" class="btn-success" [disabled]="!newCategory.name.trim()">
+          ✅ Kreiraj
+        </button>
+        <button (click)="showCreateForm = false" class="btn-secondary">
+          ❌ Otkaži
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    Učitavanje kategorija...
+  </div>
+
+  <!-- Lista kategorija -->
+  <div *ngIf="!isLoading" class="categories-section">
+    <div *ngIf="categories.length === 0" class="no-data">
+      <p>Nema kreiranih kategorija.</p>
+    </div>
+
+    <div class="categories-grid">
+      <div *ngFor="let category of categories" class="category-card">
+        <div *ngIf="editingCategory?.id !== category.id" class="category-view">
+          <div class="category-info">
+            <h3>{{ category.name }}</h3>
+            <p *ngIf="category.description" class="category-description">
+              {{ category.description }}
+            </p>
+            <p *ngIf="!category.description" class="no-description">
+              Nema opisa
+            </p>
+          </div>
+          
+          <div class="category-actions">
+            <button (click)="startEdit(category)" class="btn-secondary">
+              ✏️ Izmeni
+            </button>
+            <button (click)="deleteCategory(category.id)" class="btn-danger">
+              🗑️ Obriši
+            </button>
+          </div>
+        </div>
+
+    
+        <div *ngIf="editingCategory?.id === category.id" class="category-edit">
+        <div class="form-group">
+            <label>Naziv kategorije</label>
+            <input 
+            type="text" 
+            [ngModel]="editingCategory?.name" 
+            (ngModelChange)="editingCategory!.name = $event"
+            class="form-input"
+            >
+        </div>
+        <div class="form-group">
+            <label>Opis</label>
+            <textarea 
+            [ngModel]="editingCategory?.description" 
+            (ngModelChange)="editingCategory!.description = $event"
+            class="form-textarea"
+            rows="3"
+            ></textarea>
+        </div>
+        <div class="form-actions">
+            <button (click)="updateCategory()" class="btn-success">
+            💾 Sačuvaj
+            </button>
+            <button (click)="cancelEdit()" class="btn-secondary">
+            ❌ Otkaži
+            </button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

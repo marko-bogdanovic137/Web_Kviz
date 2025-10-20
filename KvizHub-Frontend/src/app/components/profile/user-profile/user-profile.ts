@@ -79,11 +79,15 @@ export class UserProfileComponent implements OnInit {
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
     const remainingMinutes = minutes % 60;
+    const remainingSeconds = seconds % 60;
     
     if (hours > 0) {
-      return `${hours}h ${remainingMinutes}m`;
+      return `${hours}h ${remainingMinutes}m ${remainingSeconds}s`;
     }
-    return `${minutes}m`;
+    if (minutes > 0) {
+      return `${minutes}m ${remainingSeconds}s`;
+    }
+    return `${remainingSeconds}s`;
   }
 
   formatDate(dateInput: Date | string | undefined): string {

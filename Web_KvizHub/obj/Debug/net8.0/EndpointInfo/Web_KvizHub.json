@@ -108,6 +108,27 @@
             "description": "OK"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/api/Admin/quizzes/{id}/toggle": {
@@ -299,6 +320,29 @@
       "get": {
         "tags": [
           "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Admin/users/{userId}": {
+      "delete": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -921,37 +965,6 @@
   },
   "components": {
     "schemas": {
-      "AnswerOption": {
-        "required": [
-          "text"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "text": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "isCorrect": {
-            "type": "boolean"
-          },
-          "order": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "questionId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "question": {
-            "$ref": "#/components/schemas/Question"
-          }
-        },
-        "additionalProperties": false
-      },
       "Category": {
         "required": [
           "name"
@@ -968,13 +981,6 @@
           },
           "description": {
             "type": "string",
-            "nullable": true
-          },
-          "quizzes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Quiz"
-            },
             "nullable": true
           }
         },
@@ -1103,49 +1109,6 @@
         },
         "additionalProperties": false
       },
-      "Question": {
-        "required": [
-          "text"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "text": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "points": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "order": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "quizId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "quiz": {
-            "$ref": "#/components/schemas/Quiz"
-          },
-          "answerOptions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AnswerOption"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "QuestionAnswerDTO": {
         "type": "object",
         "properties": {
@@ -1163,117 +1126,6 @@
           },
           "answerText": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Quiz": {
-        "required": [
-          "title"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "timeLimit": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "difficulty": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "categoryId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "createdByUserId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "category": {
-            "$ref": "#/components/schemas/Category"
-          },
-          "createdByUser": {
-            "$ref": "#/components/schemas/User"
-          },
-          "questions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Question"
-            },
-            "nullable": true
-          },
-          "quizResults": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QuizResult"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "QuizResult": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "score": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "totalQuestions": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "percentage": {
-            "type": "number",
-            "format": "double"
-          },
-          "timeSpent": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "completedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "quizId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
-          },
-          "quiz": {
-            "$ref": "#/components/schemas/Quiz"
-          },
-          "userAnswers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserAnswer"
-            },
             "nullable": true
           }
         },
@@ -1317,112 +1169,6 @@
           },
           "profileImage": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "SelectedAnswer": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userAnswerId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "answerOptionId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userAnswer": {
-            "$ref": "#/components/schemas/UserAnswer"
-          },
-          "answerOption": {
-            "$ref": "#/components/schemas/AnswerOption"
-          }
-        },
-        "additionalProperties": false
-      },
-      "User": {
-        "required": [
-          "email",
-          "passwordHash",
-          "username"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "username": {
-            "maxLength": 50,
-            "minLength": 1,
-            "type": "string"
-          },
-          "email": {
-            "minLength": 1,
-            "type": "string",
-            "format": "email"
-          },
-          "passwordHash": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "profileImage": {
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "quizResults": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QuizResult"
-            },
-            "nullable": true
-          },
-          "createdQuizzes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Quiz"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserAnswer": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "answerText": {
-            "type": "string",
-            "nullable": true
-          },
-          "isCorrect": {
-            "type": "boolean"
-          },
-          "quizResultId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "quizResult": {
-            "$ref": "#/components/schemas/QuizResult"
-          },
-          "selectedAnswers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SelectedAnswer"
-            },
             "nullable": true
           }
         },

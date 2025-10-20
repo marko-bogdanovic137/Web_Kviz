@@ -31,7 +31,7 @@ namespace Web_KvizHub.Controllers
             get
             {
                 // Privremeno - svako je admin. Kasnije ćemo dodati pravu proveru
-                return UserId.HasValue && (UserId.Value == 1 || UserId.Value == 2); // admin i marko su admini
+                return UserId.HasValue && (UserId.Value == 22); // admin i marko su admini
             }
         }
     }

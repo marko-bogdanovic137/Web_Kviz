@@ -1,0 +1,83 @@
+<div class="admin-container">
+  <div class="page-header">
+    <button routerLink="/admin" class="back-btn">← Nazad na Admin</button>
+    <h1>📊 Pregled Rezultata</h1>
+    <p>Ukupno rezultata: {{ results.length }} (prikazano: {{ filteredResults.length }})</p>
+  </div>
+
+  <!-- Filteri -->
+  <div class="filters-section">
+    <div class="filter-group">
+      <div class="filter-item">
+        <label>Filter vremena:</label>
+        <select [(ngModel)]="filterType" (change)="onFilterChange()" class="filter-select">
+          <option value="all">Svi rezultati</option>
+          <option value="today">Danas</option>
+          <option value="week">Poslednjih 7 dana</option>
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label>Pretraga:</label>
+        <input 
+          type="text" 
+          [(ngModel)]="searchTerm" 
+          (input)="onFilterChange()"
+          placeholder="Korisnik ili kviz..."
+          class="search-input"
+        >
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    Učitavanje rezultata...
+  </div>
+
+  <div *ngIf="!isLoading" class="results-section">
+    <div *ngIf="filteredResults.length === 0" class="no-data">
+      <p>Nema rezultata koji odgovaraju filterima.</p>
+    </div>
+
+    <div class="results-table">
+      <div class="table-header">
+        <div class="col-user">Korisnik</div>
+        <div class="col-quiz">Kviz</div>
+        <div class="col-score">Rezultat</div>
+        <div class="col-time">Vreme</div>
+        <div class="col-date">Datum</div>
+      </div>
+
+      <div class="table-body">
+        <div *ngFor="let result of filteredResults" class="table-row">
+          <div class="col-user">
+            <div class="user-info">
+              <div class="user-avatar-small">
+                {{ result.user?.username?.charAt(0)?.toUpperCase() }}
+              </div>
+              <span>{{ result.user?.username }}</span>
+            </div>
+          </div>
+          
+          <div class="col-quiz">
+            {{ result.quiz?.title }}
+          </div>
+          
+          <div class="col-score">
+            <span class="score-badge {{ getScoreColor(result.percentage) }}">
+              {{ result.score }}/{{ result.totalQuestions }} ({{ result.percentage }}%)
+            </span>
+          </div>
+          
+          <div class="col-time">
+            {{ formatTime(result.timeSpent) }}
+          </div>
+          
+          <div class="col-date">
+            {{ formatDate(result.completedAt) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,7 +13,6 @@ namespace KvizHub.Infrastructure.Data.Seed
 		public static void SeedData(ModelBuilder modelBuilder)
 		{
 			SeedCategories(modelBuilder);
-			SeedUsers(modelBuilder);
 			SeedQuizzes(modelBuilder);
 		}
 
@@ -24,31 +23,6 @@ namespace KvizHub.Infrastructure.Data.Seed
 				new Category { Id = 2, Name = "Istorija", Description = "Istorijski događaji i ličnosti" },
 				new Category { Id = 3, Name = "Nauka", Description = "Naučna dostignuća i otkrića" },
 				new Category { Id = 4, Name = "Sport", Description = "Sportske teme i takmičenja" }
-			);
-		}
-
-		private static void SeedUsers(ModelBuilder modelBuilder)
-		{
-			// Koristi FIKSNE vrednosti umesto dynamic
-			modelBuilder.Entity<User>().HasData(
-				new User
-				{
-					Id = 1,
-					Username = "admin",
-					Email = "admin@kvizhub.com",
-					// Hardkodovan hash za "admin123"
-					PasswordHash = "$2a$11$LQv3c1yqBWVHrnG0e8M/4e6u6t6Q1V8cY8QaJ8c6vY6dL9rV8cY8Qa",
-					CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) // Fiksan datum
-				},
-				new User
-				{
-					Id = 2,
-					Username = "marko",
-					Email = "marko@example.com",
-					// Hardkodovan hash za "marko123"
-					PasswordHash = "$2a$11$KJv3c1yqBWVHrnG0e8M/4e6u6t6Q1V8cY8QaJ8c6vY6dL9rV8cY8Qb",
-					CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc) // Fiksan datum
-				}
 			);
 		}
 

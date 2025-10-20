@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
 
@@ -14,7 +14,7 @@ import { User } from '../../models/user.model';
 export class DashboardComponent implements OnInit {
   currentUser: User | null = null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
@@ -22,6 +22,6 @@ export class DashboardComponent implements OnInit {
 
   logout(): void {
     this.authService.logout();
-    // Redirect će se desiti automatski preko guard-a
+    this.router.navigate(['/login']);
   }
 }

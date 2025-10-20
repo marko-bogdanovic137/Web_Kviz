@@ -73,7 +73,8 @@ namespace KvizHub.Infrastructure.Services.Implementations
 				Username = user.Username,
 				Email = user.Email,
 				ProfileImage = user.ProfileImage,
-				Token = token
+				Token = token,
+				IsAdmin = user.IsAdmin
 			};
 		}
 
@@ -98,7 +99,8 @@ namespace KvizHub.Infrastructure.Services.Implementations
 				Username = user.Username,
 				Email = user.Email,
 				ProfileImage = user.ProfileImage,
-				Token = token
+				Token = token,
+				IsAdmin = user.IsAdmin
 			};
 		}
 

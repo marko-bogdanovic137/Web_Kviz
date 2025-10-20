@@ -1,0 +1,37 @@
+<div class="admin-container">
+  <div class="page-header">
+    <button routerLink="/admin" class="back-btn">← Nazad na Admin</button>
+    <h1>👥 Upravljanje Korisnicima</h1>
+    <p>Ukupno korisnika: {{ users.length }}</p>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    Učitavanje korisnika...
+  </div>
+
+  <div *ngIf="!isLoading" class="users-section">
+    <div class="users-grid">
+      <div *ngFor="let user of users" class="user-card">
+        <div class="user-avatar">
+            {{ (user.username ? user.username.charAt(0) : '').toUpperCase() }}
+        </div>
+        
+        <div class="user-info">
+          <h3>{{ user.username }}</h3>
+          <p class="user-email">{{ user.email }}</p>
+          <p class="user-joined">Član od: {{ formatDate(user.createdAt) }}</p>
+          
+          <div class="user-badges">
+            <span *ngIf="user.isAdmin" class="badge admin-badge">Admin</span>
+          </div>
+        </div>
+
+        <div class="user-actions">
+          <button (click)="deleteUser(user.id)" class="btn-danger">
+            🗑️ Obriši
+           </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

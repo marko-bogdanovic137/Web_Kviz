@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace KvizHub.Models.Entities
@@ -21,9 +22,13 @@ namespace KvizHub.Models.Entities
 		public int CreatedByUserId { get; set; }
 
 		// Navigacija
+		[JsonIgnore]
 		public Category Category { get; set; } = null!;
+		[JsonIgnore]
 		public User CreatedByUser { get; set; } = null!;
+		[JsonIgnore]
 		public ICollection<Question> Questions { get; set; } = new List<Question>();
+		[JsonIgnore]
 		public ICollection<QuizResult> QuizResults { get; set; } = new List<QuizResult>();
 	}
 

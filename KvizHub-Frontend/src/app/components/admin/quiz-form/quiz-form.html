@@ -1,0 +1,244 @@
+<div class="quiz-form-container">
+  <div class="form-header">
+    <button routerLink="/admin/quizzes" class="back-btn">← Nazad na Kvizove</button>
+    <h1>{{ isEditMode ? '✏️ Izmeni Kviz' : '➕ Novi Kviz' }}</h1>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" class="quiz-form">
+    <!-- Osnovne informacije -->
+    <div class="form-section">
+      <h2>📝 Osnovne Informacije</h2>
+
+      <div class="form-group">
+        <label>Naslov Kviza *</label>
+        <input
+          type="text"
+          [(ngModel)]="quiz.title"
+          name="title"
+          placeholder="Unesi naslov kviza"
+          class="form-input"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Opis Kviza</label>
+        <textarea
+          [(ngModel)]="quiz.description"
+          name="description"
+          placeholder="Opis kviza..."
+          class="form-textarea"
+          rows="3"
+        ></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Kategorija *</label>
+          <select
+            [(ngModel)]="quiz.categoryId"
+            name="categoryId"
+            class="form-select"
+            required
+          >
+            <option value="">Odaberi kategoriju</option>
+            <option *ngFor="let category of categories" [value]="category.id">
+              {{ category.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Težina *</label>
+          <select
+            [(ngModel)]="quiz.difficulty"
+            name="difficulty"
+            class="form-select"
+            required
+          >
+            <option *ngFor="let diff of difficulties" [value]="diff.value">
+              {{ diff.label }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Vremensko Ograničenje (minuti) *</label>
+          <input
+            type="number"
+            [(ngModel)]="quiz.timeLimit"
+            name="timeLimit"
+            min="1"
+            max="180"
+            class="form-input"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Pitanja -->
+    <div class="form-section">
+      <div class="section-header">
+        <h2>❓ Pitanja ({{ quiz.questions.length }})</h2>
+        <button type="button" (click)="addQuestion()" class="btn-primary">
+          ➕ Dodaj Pitanje
+        </button>
+      </div>
+
+      <div *ngIf="quiz.questions.length === 0" class="no-questions">
+        <p>Još nema pitanja. Dodajte prvo pitanje!</p>
+      </div>
+
+      <div *ngFor="let question of quiz.questions; let i = index" class="question-card">
+        <div class="question-header">
+          <h3>Pitanje {{ i + 1 }}</h3>
+          <div class="question-actions">
+            <button
+              type="button"
+              (click)="moveQuestionUp(i)"
+              [disabled]="i === 0"
+              class="btn-icon"
+              title="Pomeri gore"
+            >
+              ⬆️
+            </button>
+            <button
+              type="button"
+              (click)="moveQuestionDown(i)"
+              [disabled]="i === quiz.questions.length - 1"
+              class="btn-icon"
+              title="Pomeri dole"
+            >
+              ⬇️
+            </button>
+            <button
+              type="button"
+              (click)="removeQuestion(i)"
+              class="btn-danger"
+              title="Obriši pitanje"
+            >
+              🗑️
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Tekst Pitanja *</label>
+          <textarea
+            [(ngModel)]="question.text"
+            [name]="'questionText' + i"
+            placeholder="Unesi tekst pitanja..."
+            class="form-textarea"
+            rows="2"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tip Pitanja</label>
+            <select
+              [(ngModel)]="question.type"
+              [name]="'questionType' + i"
+              (change)="onQuestionTypeChange(i, $any($event.target).value)"
+              class="form-select"
+            >
+              <option *ngFor="let type of questionTypes" [value]="type.value">
+                {{ type.label }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Broj Poena</label>
+            <input
+              type="number"
+              [(ngModel)]="question.points"
+              [name]="'questionPoints' + i"
+              min="1"
+              max="10"
+              class="form-input"
+            />
+          </div>
+        </div>
+
+        <!-- Odgovori -->
+        <div class="answers-section">
+          <div class="answers-header">
+            <h4>📋 Odgovori</h4>
+            <button
+              type="button"
+              (click)="addAnswerOption(i)"
+              class="btn-secondary"
+              *ngIf="question.type !== 'TrueFalse' && question.type !== 'FillInBlank'"
+            >
+              ➕ Dodaj Odgovor
+            </button>
+          </div>
+
+          <div class="answers-list">
+            <div *ngFor="let option of question.answerOptions; let j = index" class="answer-option">
+              <div class="option-content">
+                <input
+                  *ngIf="question.type !== 'FillInBlank'"
+                  [type]="
+                    question.type === 'MultipleChoice' || question.type === 'TrueFalse'
+                      ? 'radio'
+                      : 'checkbox'
+                  "
+                  [checked]="option.isCorrect"
+                  (change)="onAnswerCorrectChange(i, j)"
+                  [name]="'correct' + i"
+                  class="correct-checkbox"
+                />
+
+                <input
+                  type="text"
+                  [(ngModel)]="option.text"
+                  [name]="'optionText' + i + j"
+                  class="option-input"
+                  [readonly]="question.type === 'TrueFalse'"
+                />
+
+                <button
+                  type="button"
+                  (click)="removeAnswerOption(i, j)"
+                  class="btn-icon danger"
+                  *ngIf="question.type !== 'TrueFalse' && question.type !== 'FillInBlank'"
+                  [disabled]="question.answerOptions.length <= 1"
+                  title="Obriši odgovor"
+                >
+                  ❌
+                </button>
+              </div>
+
+              <div class="option-hint" *ngIf="question.type === 'MultipleChoice'">
+                <small>Samo jedan odgovor može biti tačan</small>
+              </div>
+
+              <div class="option-hint" *ngIf="question.type === 'TrueFalse'">
+                <small>Izaberite tačan odgovor</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Kraj odgovora -->
+      </div>
+      <!-- Kraj pitanja -->
+    </div>
+
+    <!-- Akcije -->
+    <div class="form-actions">
+      <button routerLink="/admin/quizzes" class="back-btn" type="button">Otkazi</button>
+      <button
+        type="button"
+        class="btn-primary"
+        [disabled]="isLoading"
+        (click)="onSubmit()"
+      >
+        {{ isLoading ? '⏳ Čuvanje...' : (isEditMode ? '💾 Sačuvaj Izmene' : '✅ Kreiraj Kviz') }}
+      </button>
+    </div>
+  </form>
+</div>

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Web_KvizHub")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef6d876ceb07c5662d8f4cb0d14a60ffd2181f72")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2ea7a923e4ba35cbdce526f2c1636a8bc9788f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Web_KvizHub")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Web_KvizHub")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

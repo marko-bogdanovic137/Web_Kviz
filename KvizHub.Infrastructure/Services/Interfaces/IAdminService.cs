@@ -12,16 +12,19 @@ namespace KvizHub.Infrastructure.Services.Interfaces
     {
         // Korisnici
         Task<List<UserDTO>> GetAllUsersAsync();
-        Task<bool> ToggleUserStatusAsync(int userId);
+        //Task<bool> ToggleUserStatusAsync(int userId);
+        Task<bool> DeleteUserAsync(int userId);
 
-        // Kvizovi - admin može da vidi i neaktivne
-        Task<List<QuizAdminDTO>> GetAllQuizzesAsync(bool includeInactive = false);
+		// Kvizovi - admin može da vidi i neaktivne
+		Task<List<QuizAdminDTO>> GetAllQuizzesAsync(bool includeInactive = false);
         Task<Quiz> CreateQuizAsync(CreateQuizDTO createQuizDto, int adminUserId);
         Task<Quiz> UpdateQuizAsync(int quizId, CreateQuizDTO updateQuizDto);
         Task<bool> ToggleQuizStatusAsync(int quizId);
 
-        // Kategorije
-        Task<List<Category>> GetAllCategoriesAsync();
+        Task<bool> DeleteQuizAsync(int quizId);
+
+		// Kategorije
+		Task<List<Category>> GetAllCategoriesAsync();
         Task<Category> CreateCategoryAsync(Category category);
         Task<Category> UpdateCategoryAsync(int categoryId, Category category);
         Task<bool> DeleteCategoryAsync(int categoryId);
@@ -31,12 +34,11 @@ namespace KvizHub.Infrastructure.Services.Interfaces
         Task<List<QuizResult>> GetQuizResultsByQuizAsync(int quizId);
         Task<List<QuizResult>> GetQuizResultsByUserAsync(int userId);
 
-        // Statistika
-        Task<AdminStatsDTO> GetAdminStatsAsync();
+		// Statistika
+		Task<AdminStatsDTO> GetAdminStatsAsync();
     }
 }
 
-// Dodaj u QuizDTOs.cs
 public class AdminStatsDTO
 {
     public int TotalUsers { get; set; }

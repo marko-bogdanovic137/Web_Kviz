@@ -38,6 +38,7 @@ export class AuthService {
 }
 
   private setSession(authData: any): void {
+    console.log('SET SESSION - Auth Data:', authData);
     localStorage.setItem('token', authData.token);
     
     const user: User = {
@@ -45,7 +46,8 @@ export class AuthService {
       username: authData.username,
       email: authData.email,
       profileImage: authData.profileImage,
-       createdAt: authData.createdAt ? new Date(authData.createdAt) : new Date()
+      createdAt: authData.createdAt ? new Date(authData.createdAt) : new Date(),
+      isAdmin: authData.isAdmin
     };
     
     localStorage.setItem('currentUser', JSON.stringify(user));
@@ -68,5 +70,10 @@ export class AuthService {
 
   getCurrentUser(): User | null {
     return this.currentUserSubject.value;
+  }
+
+  isAdmin(): boolean {
+  const user = this.getCurrentUser();
+  return !!(user && user.isAdmin);
   }
 }

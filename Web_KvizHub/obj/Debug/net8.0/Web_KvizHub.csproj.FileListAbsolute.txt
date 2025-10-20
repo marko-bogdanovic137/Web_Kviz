@@ -376,6 +376,14 @@ C:\Users\marko\Desktop\Web\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\refint\Web_Kviz
 C:\Users\marko\Desktop\Web\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.pdb
 C:\Users\marko\Desktop\Web\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.genruntimeconfig.cache
 C:\Users\marko\Desktop\Web\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\ref\Web_KvizHub.dll
+C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.csproj.AssemblyReference.cache
+C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.AssemblyInfoInputs.cache
+C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.AssemblyInfo.cs
+C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.csproj.CoreCompileInputs.cache
+C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.sourcelink.json
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\bin\Debug\net8.0\appsettings.json
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\bin\Debug\net8.0\Web_KvizHub.staticwebassets.endpoints.json
@@ -545,15 +553,6 @@ C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\bin\Debug\net8.0\KvizHub.Models.dll
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\bin\Debug\net8.0\KvizHub.Core.pdb
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\bin\Debug\net8.0\KvizHub.Infrastructure.pdb
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\bin\Debug\net8.0\KvizHub.Models.pdb
-C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.csproj.AssemblyReference.cache
-C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\rpswa.dswa.cache.json
-C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.AssemblyInfoInputs.cache
-C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.AssemblyInfo.cs
-C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.csproj.CoreCompileInputs.cache
-C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.sourcelink.json
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -569,3 +568,4 @@ C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\refint\Web_KvizHub.
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.pdb
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.genruntimeconfig.cache
 C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\ref\Web_KvizHub.dll
+C:\Users\marko\Desktop\Web_Kviz\Web_KvizHub\obj\Debug\net8.0\Web_KvizHub.MvcApplicationPartsAssemblyInfo.cs

@@ -514,6 +514,9 @@ namespace KvizHub.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("bit");
+
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -542,6 +545,7 @@ namespace KvizHub.Infrastructure.Migrations
                             Id = 1,
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Email = "admin@kvizhub.com",
+                            IsAdmin = false,
                             PasswordHash = "$2a$11$LQv3c1yqBWVHrnG0e8M/4e6u6t6Q1V8cY8QaJ8c6vY6dL9rV8cY8Qa",
                             Username = "admin"
                         },
@@ -550,6 +554,7 @@ namespace KvizHub.Infrastructure.Migrations
                             Id = 2,
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Email = "marko@example.com",
+                            IsAdmin = false,
                             PasswordHash = "$2a$11$KJv3c1yqBWVHrnG0e8M/4e6u6t6Q1V8cY8QaJ8c6vY6dL9rV8cY8Qb",
                             Username = "marko"
                         });

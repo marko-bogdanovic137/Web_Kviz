@@ -4,6 +4,7 @@
       <h1>KvizHub</h1>
       <div class="user-info">
         <span>Zdravo, {{ currentUser?.username }}!</span>
+        <button routerLink="/admin" class="btn-admin">Admin Panel</button>
         <button (click)="logout()" class="btn-logout">Odjavi se</button>
       </div>
     </div>
@@ -32,12 +33,6 @@
         <div class="card-icon">👤</div>
         <h3>Moj Profil</h3>
         <p>Pregledajte svoje rezultate</p>
-      </div>
-
-      <div class="action-card" routerLink="/live-quiz">
-        <div class="card-icon">⚡</div>
-        <h3>Live Kviz</h3>
-        <p>Uživo takmičenje sa drugima</p>
       </div>
     </div>
   </main>

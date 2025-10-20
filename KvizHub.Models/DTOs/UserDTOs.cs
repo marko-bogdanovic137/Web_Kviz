@@ -30,6 +30,7 @@ using System.Threading.Tasks;
 			public string Email { get; set; } = string.Empty;
 			public string? ProfileImage { get; set; }
 			public string Token { get; set; } = string.Empty;
+			public bool IsAdmin { get; set; }
 		}
 
 		// DTO za prikaz korisnika (bez osetljivih podataka)
@@ -40,6 +41,7 @@ using System.Threading.Tasks;
 			public string Email { get; set; } = string.Empty;
 			public string? ProfileImage { get; set; }
 			public DateTime CreatedAt { get; set; }
+			public bool IsAdmin { get; set; }
 		}
 		public class UserUpdateDTO
 		{

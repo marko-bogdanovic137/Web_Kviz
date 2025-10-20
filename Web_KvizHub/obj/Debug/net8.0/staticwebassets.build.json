@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "YJ0N4RTsN7Yn7Nc5OhoKZX3hq8Rmw8MKX+9u45Erp5w=",
-  "Source": "Web_KvizHub",
-  "BasePath": "_content/Web_KvizHub",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"kJzn62BY73c5TeRUyaFlT7zCNYVfvsR65Zjt6Q32uUM=","Source":"Web_KvizHub","BasePath":"_content/Web_KvizHub","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}

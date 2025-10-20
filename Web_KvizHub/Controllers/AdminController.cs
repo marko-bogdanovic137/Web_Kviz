@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using KvizHub.Infrastructure.Services.Interfaces;
+﻿using KvizHub.Infrastructure.Services.Interfaces;
 using KvizHub.Models.DTOs;
 using KvizHub.Models.Entities;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Web_KvizHub.Controllers;
 
 namespace KvizHub.API.Controllers
@@ -253,5 +254,42 @@ namespace KvizHub.API.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-    }
+
+		[HttpDelete("users/{userId}")]
+		public async Task<IActionResult> DeleteUser(int userId)
+		{
+			try
+			{
+				if (!IsAdmin)
+					return Unauthorized("Samo administratori mogu da pristupe ovom resursu.");
+
+				var result = await _adminService.DeleteUserAsync(userId);
+				if (!result) return NotFound();
+				return Ok(new { message = "Korisnik uspešno obrisan." });
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(new { message = ex.Message });
+			}
+		}
+
+		[HttpDelete("quizzes/{id}")]
+		public async Task<IActionResult> DeleteQuiz(int id)
+		{
+			try
+			{
+				if (!IsAdmin)
+					return Unauthorized("Samo administratori mogu da pristupe ovom resursu.");
+
+				var result = await _adminService.DeleteQuizAsync(id);
+				if (!result) return NotFound();
+				return Ok(new { message = "Kviz uspešno obrisan." });
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(new { message = ex.Message });
+			}
+		}
+
+	}
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace KvizHub.Models.Entities
@@ -18,7 +19,9 @@ namespace KvizHub.Models.Entities
 		public int UserId { get; set; }
 		public int QuizId { get; set; }
 
+		[JsonIgnore]
 		public User User { get; set; } = null!;
+		[JsonIgnore]
 		public Quiz Quiz { get; set; } = null!;
 
 		// UserAnswers sada čuvamo **bez FK ka Question**, samo vezu ka QuizResult

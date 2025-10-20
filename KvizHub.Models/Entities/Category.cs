@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace KvizHub.Models.Entities
@@ -13,6 +14,7 @@ namespace KvizHub.Models.Entities
 		[Required] public string Name { get; set; } = string.Empty;
 		public string Description { get; set; } = string.Empty;
 
+		[JsonIgnore]
 		public ICollection<Quiz> Quizzes { get; set; } = new List<Quiz>();
 	}
 

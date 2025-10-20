@@ -1,0 +1,109 @@
+<div class="admin-container">
+  <!-- Header -->
+  <div class="admin-header">
+    <button routerLink="/dashboard" class="back-btn">← Nazad na Dashboard</button>
+    <h1>🛠️ Admin Panel</h1>
+    <p>Upravljajte korisnicima, kvizovima i pratite statistiku</p>
+  </div>
+
+  <!-- Admin Navigation -->
+  <div class="admin-nav">
+    <a routerLink="/admin/users" class="nav-card">
+      <div class="nav-icon">👥</div>
+      <h3>Korisnici</h3>
+      <p>Upravljaj korisničkim nalozima</p>
+    </a>
+    
+    <a routerLink="/admin/quizzes" class="nav-card">
+      <div class="nav-icon">📝</div>
+      <h3>Kvizovi</h3>
+      <p>Kreiraj i uredi kvizove</p>
+    </a>
+    
+    <a routerLink="/admin/categories" class="nav-card">
+      <div class="nav-icon">📚</div>
+      <h3>Kategorije</h3>
+      <p>Upravljaj kategorijama</p>
+    </a>
+    
+    <a routerLink="/admin/results" class="nav-card">
+      <div class="nav-icon">📊</div>
+      <h3>Rezultati</h3>
+      <p>Pregled svih rezultata</p>
+    </a>
+  </div>
+
+  <!-- Statistika -->
+  <div class="stats-section">
+    <h2>📈 Statistika Platforme</h2>
+    
+    <div *ngIf="isLoading" class="loading">
+      Učitavanje statistike...
+    </div>
+
+    <div *ngIf="!isLoading && stats" class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ formatNumber(stats.totalUsers) }}</span>
+          <span class="stat-label">Ukupno Korisnika</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">📝</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ formatNumber(stats.totalQuizzes) }}</span>
+          <span class="stat-label">Ukupno Kvizova</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ formatNumber(stats.totalQuizAttempts) }}</span>
+          <span class="stat-label">Pokušaja Kvizova</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ formatNumber(stats.activeQuizzes) }}</span>
+          <span class="stat-label">Aktivnih Kvizova</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">📊</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ formatPercentage(stats.averageQuizScore) }}</span>
+          <span class="stat-label">Prosečni Rezultat</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">🔥</div>
+        <div class="stat-info">
+          <span class="stat-value">{{ stats.mostPopularCategory }}</span>
+          <span class="stat-label">Popularna Kategorija</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistika po kategorijama -->
+    <div *ngIf="!isLoading && stats && stats.categoryStats" class="category-stats">
+      <h3>📚 Statistika po Kategorijama</h3>
+      <div class="category-grid">
+        <div *ngFor="let category of stats.categoryStats" class="category-stat">
+          <h4>{{ category.categoryName }}</h4>
+          <div class="category-details">
+            <span>Kvizova: {{ category.quizCount }}</span>
+            <span>Pokušaja: {{ category.attemptCount }}</span>
+            <span>Prosek: {{ formatPercentage(category.averageScore) }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

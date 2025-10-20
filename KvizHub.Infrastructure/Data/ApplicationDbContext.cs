@@ -48,13 +48,11 @@ namespace KvizHub.Infrastructure
 			modelBuilder.Entity<Quiz>()
 				.HasIndex(q => q.Title);
 
-			// Globalno: NO CASCADE DELETE za sve FK-ove
 			foreach (var fk in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
 			{
 				fk.DeleteBehavior = DeleteBehavior.Restrict;
 			}
 
-			// Lokalni izuzeci gde želimo kaskadno brisanje
 			modelBuilder.Entity<AnswerOption>()
 				.HasOne(ao => ao.Question)
 				.WithMany(q => q.AnswerOptions)

@@ -1,0 +1,99 @@
+<div class="admin-container">
+  <div class="page-header">
+    <button routerLink="/admin" class="back-btn">← Nazad na Admin</button>
+    <h1>📝 Upravljanje Kvizovima</h1>
+    <p>Ukupno kvizova: {{ quizzes.length }}</p>
+  </div>
+
+  <!-- Filteri -->
+  <div class="filters-section">
+    <div class="filter-group">
+      <label>
+  <input type="checkbox" 
+         [(ngModel)]="showInactive" 
+         (ngModelChange)="loadQuizzes()">
+  Prikaži neaktivne kvizove
+</label>
+      
+      <select [(ngModel)]="selectedDifficulty" class="filter-select">
+        <option value="">Svi nivoi težine</option>
+        <option value="lako">Lako</option>
+        <option value="srednje">Srednje</option>
+        <option value="teško">Teško</option>
+      </select>
+
+      <button routerLink="/admin/quizzes/new" class="btn-primary">
+        ➕ Novi Kviz
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    Učitavanje kvizova...
+  </div>
+
+  <div *ngIf="!isLoading" class="quizzes-section">
+    <div *ngIf="filteredQuizzes.length === 0" class="no-data">
+      <p>Nema kvizova koji odgovaraju filterima.</p>
+    </div>
+
+    <div class="quizzes-grid">
+      <div *ngFor="let quiz of filteredQuizzes" class="quiz-card">
+        <div class="quiz-header">
+          <h3>{{ quiz.title }}</h3>
+          <div class="quiz-meta">
+            <span class="badge {{ getDifficultyBadgeClass(quiz.difficulty) }}">
+              {{ quiz.difficulty }}
+            </span>
+            <span class="status-badge" [class.active]="quiz.isActive" [class.inactive]="!quiz.isActive">
+              {{ quiz.isActive ? 'Aktivan' : 'Neaktivan' }}
+            </span>
+          </div>
+        </div>
+
+        <p class="quiz-description">{{ quiz.description }}</p>
+
+        <div class="quiz-details">
+          <div class="detail-item">
+            <span class="detail-label">📚 Kategorija:</span>
+            <span>{{ quiz.categoryName }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">⏱️ Vreme:</span>
+            <span>{{ formatTime(quiz.timeLimit) }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">❓ Pitanja:</span>
+            <span>{{ quiz.questionCount }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">👤 Autor:</span>
+            <span>{{ quiz.createdByUsername }}</span>
+          </div>
+        </div>
+
+        <div class="quiz-actions">
+          <!-- U .quiz-actions div-u dodaj: -->
+            <button 
+            [routerLink]="['/admin/quizzes/edit', quiz.id]" 
+            class="btn-secondary" 
+            title="Izmeni kviz"
+            >
+            ✏️ Izmeni
+            </button>
+        <button 
+            (click)="toggleQuizStatus(quiz.id)"
+            [class.btn-warning]="quiz.isActive"
+            [class.btn-success]="!quiz.isActive"
+            class="btn-action"
+          >
+            {{ quiz.isActive ? '🚫 Deaktiviraj' : '✅ Aktiviraj' }}
+          </button>
+          <button (click)="deleteQuiz(quiz.id)" class="btn-action" title="Obriši kviz">
+            🗑️ Obriši
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
